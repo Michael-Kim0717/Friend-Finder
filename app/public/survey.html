@@ -6,6 +6,12 @@
         <title> Friend Finder Survey </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
+        <!-- Bootstrap and JQuery -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
         <!-- Files to be used at a later time -->
         <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <script src="main.js"></script> -->
@@ -13,24 +19,137 @@
     <body>
         <h1> Friend Finder </h1>
         <h3> You are one step closer to finding a new friend! </h3>
+        <button> <a href="./home"> Home </a> </button>
 
         <h4> Pick the answer that best fits you! </h4>
         <form>
+            <h3> Name </h3>
+            <input type="text" id="nameField">
+            <br>
+            <h3> Link to Image </h3>
+            <input type="text" id="imageLink">
+            <br> 
+
             <h4> Question 1 </h4>
-            <input type="radio" class="choice1" name="question1"/>
-            <input type="radio" class="choice2" name="question1"/>
-            <input type="radio" class="choice3" name="question1"/>
-            <input type="radio" class="choice4" name="question1"/>
-            <input type="radio" class="choice5" name="question1"/>
+            <input type="radio" class="q1c1" name="question1"/> 1 : Highly Disagree
+            <input type="radio" class="q1c2" name="question1"/> 2 : Disagree
+            <input type="radio" class="q1c3" name="question1"/> 3 : Neutral
+            <input type="radio" class="q1c4" name="question1"/> 4 : Agree
+            <input type="radio" class="q1c5" name="question1"/> 5 : Highly Agree
 
             <h4> Question 2 </h4>
-            <input type="radio" class="choice1" name="question2"/>
-            <input type="radio" class="choice2" name="question2"/>
-            <input type="radio" class="choice3" name="question2"/>
-            <input type="radio" class="choice4" name="question2"/>
-            <input type="radio" class="choice5" name="question2"/>
-        </form>
+            <input type="radio" class="q2c1" name="question2"/> 1 : Highly Disagree
+            <input type="radio" class="q2c2" name="question2"/> 2 : Disagree
+            <input type="radio" class="q2c3" name="question2"/> 3 : Neutral
+            <input type="radio" class="q2c4" name="question2"/> 4 : Agree
+            <input type="radio" class="q2c5" name="question2"/> 5 : Highly Agree
+            
+            <h4> Question 3 </h4>
+            <input type="radio" class="q3c1" name="question3"/> 1 : Highly Disagree
+            <input type="radio" class="q3c2" name="question3"/> 2 : Disagree
+            <input type="radio" class="q3c3" name="question3"/> 3 : Neutral
+            <input type="radio" class="q3c4" name="question3"/> 4 : Agree
+            <input type="radio" class="q3c5" name="question3"/> 5 : Highly Agree
+            
+            <h4> Question 4 </h4>
+            <input type="radio" class="q4c1" name="question4"/> 1 : Highly Disagree
+            <input type="radio" class="q4c2" name="question4"/> 2 : Disagree
+            <input type="radio" class="q4c3" name="question4"/> 3 : Neutral
+            <input type="radio" class="q4c4" name="question4"/> 4 : Agree
+            <input type="radio" class="q4c5" name="question4"/> 5 : Highly Agree
+            
+            <h4> Question 5 </h4>
+            <input type="radio" class="q5c1" name="question5"/> 1 : Highly Disagree
+            <input type="radio" class="q5c2" name="question5"/> 2 : Disagree
+            <input type="radio" class="q5c3" name="question5"/> 3 : Neutral
+            <input type="radio" class="q5c4" name="question5"/> 4 : Agree
+            <input type="radio" class="q5c5" name="question5"/> 5 : Highly Agree
+            
+            <h4> Question 6 </h4>
+            <input type="radio" class="q6c1" name="question6"/> 1 : Highly Disagree
+            <input type="radio" class="q6c2" name="question6"/> 2 : Disagree
+            <input type="radio" class="q6c3" name="question6"/> 3 : Neutral
+            <input type="radio" class="q6c4" name="question6"/> 4 : Agree
+            <input type="radio" class="q6c5" name="question6"/> 5 : Highly Agree
+            
+            <h4> Question 7 </h4>
+            <input type="radio" class="q7c1" name="question7"/> 1 : Highly Disagree
+            <input type="radio" class="q7c2" name="question7"/> 2 : Disagree
+            <input type="radio" class="q7c3" name="question7"/> 3 : Neutral
+            <input type="radio" class="q7c4" name="question7"/> 4 : Agree
+            <input type="radio" class="q7c5" name="question7"/> 5 : Highly Agree
+            
+            <h4> Question 8 </h4>
+            <input type="radio" class="q8c1" name="question8"/> 1 : Highly Disagree
+            <input type="radio" class="q8c2" name="question8"/> 2 : Disagree
+            <input type="radio" class="q8c3" name="question8"/> 3 : Neutral
+            <input type="radio" class="q8c4" name="question8"/> 4 : Agree
+            <input type="radio" class="q8c5" name="question8"/> 5 : Highly Agree
+            
+            <h4> Question 9 </h4>
+            <input type="radio" class="q9c1" name="question9"/> 1 : Highly Disagree
+            <input type="radio" class="q9c2" name="question9"/> 2 : Disagree
+            <input type="radio" class="q9c3" name="question9"/> 3 : Neutral
+            <input type="radio" class="q9c4" name="question9"/> 4 : Agree
+            <input type="radio" class="q9c5" name="question9"/> 5 : Highly Agree
+            
+            <h4> Question 10 </h4>
+            <input type="radio" class="q10c1" name="question10"/> 1 : Highly Disagree
+            <input type="radio" class="q10c2" name="question10"/> 2 : Disagree
+            <input type="radio" class="q10c3" name="question10"/> 3 : Neutral
+            <input type="radio" class="q10c4" name="question10"/> 4 : Agree
+            <input type="radio" class="q10c5" name="question10"/> 5 : Highly Agree
 
-        <button> <a href="./home"> Home </a> </button>
+            <br>
+            <button type="submit" id="submitSurvey"> Submit Survey </button>
+        </form>
     </body>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var arrayOfQuestions = ["question1", "question2", "question3", "question4", "question5", "question6", "question7", "question8", "question9", "question10"];
+            
+            $("#submitSurvey").on("click", function(event){
+                event.preventDefault();
+                
+                // function to check if all fields are checked off
+                if (checkAllQuestions(arrayOfQuestions)){
+                    console.log("All Checked.");
+                    var surveyValues = returnArray(arrayOfQuestions);
+                    console.log(surveyValues);
+                }
+                // function to return an array filled with values
+                // show modal
+                // function to find most matching friend
+                // post into API friends
+            });
+        });
+
+        function checkAllQuestions (arrayOfQuestions) {
+            for (var i = 0; i < arrayOfQuestions.length; i++){
+                if (!$("input[name=" + arrayOfQuestions[i] + "]:checked").val()) {
+                    console.log(arrayOfQuestions[i] + " is not checked.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function returnArray (arrayOfQuestions){
+            var surveyValues = [];
+
+            for (var i = 0; i < arrayOfQuestions.length; i ++){
+                if ($("input[name=" + arrayOfQuestions[i] + "]:checked")){
+                    var className = $("input[name=" + arrayOfQuestions[i] + "]:checked").attr("class");
+                    surveyValues.push(parseInt(className.charAt(className.length-1)));
+                }
+            }
+
+            return surveyValues;
+        } 
+
+        function compareToFriends () {
+
+        }
+    </script>
 </html>
