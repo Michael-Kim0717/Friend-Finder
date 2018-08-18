@@ -10,7 +10,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <!-- Files to be used at a later time -->
         <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -101,24 +103,30 @@
             <input type="radio" class="q10c5" name="question10"/> 5 : Highly Agree
 
             <br>
-            <button type="submit" id="submitSurvey" data-toggle="modal" data-target="friendModal"> Submit Survey </button>
-  
-            <div class="modal fade" id="friendModal" role="dialog">
+            
+            <button type="button" id="submitSurvey" class="btn btn-primary" data-toggle="modal">
+                Submit Survey
+            </button>
+        </form>
+
+        <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="matchLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"> Match : </h4>
-                        <button type="button" class="close" data-dismiss="modal"> &times; </button>
+                        <h5 class="modal-title" id="matchLabel"> Match : </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <img id="matchImage" height="300px" width="200px"/>
+                        <img id="matchImage"/>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-
-        </form>
+        </div>
     </body>
 
     <script type="text/javascript">
@@ -129,31 +137,48 @@
                 event.preventDefault();
                 
                 // function to check if all fields are checked off
-                /* if (checkAllQuestions(arrayOfQuestions)){ */
+                if (checkAllQuestions(arrayOfQuestions)){
                     console.log("All Checked.");
                 
                     // function to return an array filled with values
                     var surveyValues = returnArray(arrayOfQuestions);
                     console.log(surveyValues);
 
-                    // function to find most matching friend                    
-                    var match = compareToFriends(surveyValues);
+                    // function to find most matching friend
+                    var friendMatch = 0;
+                    $.ajax({ url: window.location.origin + "/api/friends", method: "GET" })
+                    .then(function(friendsData) {
+                        var minimumDifference = 200000, totalDifference = 0;
 
-                    // show modal
-                    $(".modal-title").append(match.name);
-                    $("#matchImage").attr("src", match.photo);
-
-                   /*  // post into API friends
-                    var newFriend = {
-                        name: $("#nameField").val().trim(),
-                        photo: $("#imageLink").val().trim(),
-                        scores: surveyValues
-                    };
-                    $.post("/api/friends", newFriend, function(data) {
-                        if (data) {
+                        for (var i = 0; i < friendsData.length; i++) {
+                            for (var j = 0; j < friendsData[i].scores.length; j++){
+                                totalDifference += Math.abs(surveyValues[j] - friendsData[i].scores[j]);
+                            }
+                            if (totalDifference < minimumDifference) {
+                                minimumDifference = totalDifference;
+                                friendMatch = friendsData[i];
+                            }
+                            console.log(totalDifference);
+                            totalDifference = 0;
                         }
-                    }); */
-                /* } */
+                        console.log(friendMatch);
+                    }).then(function(){
+                        $(".modal-title").append(friendMatch.name);
+                        $("#matchImage").attr("src", friendMatch.photo);
+                        $("#friendModal").modal();
+
+                        // post into API friends
+                        /* var newFriend = {
+                            name: $("#nameField").val().trim(),
+                            photo: $("#imageLink").val().trim(),
+                            scores: surveyValues
+                        };
+                        $.post("/api/friends", newFriend, function(data) {
+                            if (data) {
+                            }
+                        }); */
+                    });
+                }
             });
         });
 
@@ -179,26 +204,5 @@
 
             return surveyValues;
         } 
-
-        function compareToFriends (surveyValues) {
-            $.ajax({ url: window.location.origin + "/api/friends", method: "GET" })
-            .then(function(friendsData) {
-                var minimumDifference = 200000, totalDifference = 0, friendMatch = 0;
-
-                for (var i = 0; i < friendsData.length; i++) {
-                    for (var j = 0; j < friendsData[i].scores.length; j++){
-                        totalDifference += Math.abs(surveyValues[j] - friendsData[i].scores[j]);
-                    }
-                    if (totalDifference < minimumDifference) {
-                        minimumDifference = totalDifference;
-                        friendMatch = friendsData[i];
-                    }
-                    console.log(totalDifference);
-                    totalDifference = 0;
-                }
-                console.log(friendMatch);
-                return friendMatch;
-            });
-        }
     </script>
 </html>
