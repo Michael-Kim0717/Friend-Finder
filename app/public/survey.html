@@ -24,10 +24,10 @@
         <h4> Pick the answer that best fits you! </h4>
         <form>
             <h3> Name </h3>
-            <input type="text" id="nameField">
+            <input type="text" id="nameField" required>
             <br>
             <h3> Link to Image </h3>
-            <input type="text" id="imageLink">
+            <input type="text" id="imageLink" required>
             <br> 
 
             <h4> Question 1 </h4>
@@ -101,7 +101,23 @@
             <input type="radio" class="q10c5" name="question10"/> 5 : Highly Agree
 
             <br>
-            <button type="submit" id="submitSurvey"> Submit Survey </button>
+            <button type="submit" id="submitSurvey" data-toggle="modal" data-target="friendModal"> Submit Survey </button>
+  
+            <div class="modal fade" id="friendModal" role="dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Match : </h4>
+                        <button type="button" class="close" data-dismiss="modal"> &times; </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="matchImage" height="300px" width="200px"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+                    </div>
+                </div>
+            </div>
+
         </form>
     </body>
 
@@ -113,15 +129,31 @@
                 event.preventDefault();
                 
                 // function to check if all fields are checked off
-                if (checkAllQuestions(arrayOfQuestions)){
+                /* if (checkAllQuestions(arrayOfQuestions)){ */
                     console.log("All Checked.");
+                
+                    // function to return an array filled with values
                     var surveyValues = returnArray(arrayOfQuestions);
                     console.log(surveyValues);
-                }
-                // function to return an array filled with values
-                // show modal
-                // function to find most matching friend
-                // post into API friends
+
+                    // function to find most matching friend                    
+                    var match = compareToFriends(surveyValues);
+
+                    // show modal
+                    $(".modal-title").append(match.name);
+                    $("#matchImage").attr("src", match.photo);
+
+                   /*  // post into API friends
+                    var newFriend = {
+                        name: $("#nameField").val().trim(),
+                        photo: $("#imageLink").val().trim(),
+                        scores: surveyValues
+                    };
+                    $.post("/api/friends", newFriend, function(data) {
+                        if (data) {
+                        }
+                    }); */
+                /* } */
             });
         });
 
@@ -141,15 +173,32 @@
             for (var i = 0; i < arrayOfQuestions.length; i ++){
                 if ($("input[name=" + arrayOfQuestions[i] + "]:checked")){
                     var className = $("input[name=" + arrayOfQuestions[i] + "]:checked").attr("class");
-                    surveyValues.push(parseInt(className.charAt(className.length-1)));
+                    surveyValues.push(className.charAt(className.length-1));
                 }
             }
 
             return surveyValues;
         } 
 
-        function compareToFriends () {
+        function compareToFriends (surveyValues) {
+            $.ajax({ url: window.location.origin + "/api/friends", method: "GET" })
+            .then(function(friendsData) {
+                var minimumDifference = 200000, totalDifference = 0, friendMatch = 0;
 
+                for (var i = 0; i < friendsData.length; i++) {
+                    for (var j = 0; j < friendsData[i].scores.length; j++){
+                        totalDifference += Math.abs(surveyValues[j] - friendsData[i].scores[j]);
+                    }
+                    if (totalDifference < minimumDifference) {
+                        minimumDifference = totalDifference;
+                        friendMatch = friendsData[i];
+                    }
+                    console.log(totalDifference);
+                    totalDifference = 0;
+                }
+                console.log(friendMatch);
+                return friendMatch;
+            });
         }
     </script>
 </html>
