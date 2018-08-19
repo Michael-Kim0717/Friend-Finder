@@ -6,16 +6,65 @@
         <title> Friend Finder </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- CSS FILE -->
-        <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
-        <!-- <script src="main.js"></script> -->
+        <!-- Bootstrap and JQuery -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     <body>
         <h1> Friend Finder </h1>
-        <h3> Take a short, simple survey to find a friend just like you! :) </h3>
+        
+        <div class="container">
+            <h3> Take a short, simple survey to find a friend just like you! :) </h3>
 
-        <!-- Provide an auto sliding, repeating scroll board for potential friends -->
-        <h3> Have a chance to meet people like this! </h3>
-        <button> <a href="./survey"> To Survey! </a> </button>
+            <!-- Provide an auto sliding, repeating scroll board for potential friends -->
+            <!-- <h3> Have a chance to meet people like this! </h3> -->
+            <div class="text-center">
+                <button class="btn btn-light"> <a href="./survey"> To Survey! </a> </button>
+            </div>    
+        </div>
     </body>
+
+    <style>
+        /* Body */
+        body {
+            background-image: url("http://informationcommunicationtechnology.com/wp-content/uploads/2018/06/Desk-hd-backgrounds.jpg");
+            background-position-y: 30%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Header */
+        h1 {
+            background-color: whitesmoke;
+            border-bottom: 1px solid black;
+            padding: 30px;
+            letter-spacing: .1em;
+            text-align: center;
+            text-shadow: 0 0 2px black;
+        }
+
+        /* To Survey */
+        .container {
+            background-color: #DCDCDC;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 100px auto;
+            padding: 50px 30px 50px 30px;
+            width: 40%;
+        }
+
+        h3 {
+            color: black;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
 </html>

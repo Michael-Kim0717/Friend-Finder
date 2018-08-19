@@ -15,99 +15,207 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <!-- Files to be used at a later time -->
-        <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script> -->
+        <!-- <script src="main.js"></script> -->
     </head>
     <body>
         <h1> Friend Finder </h1>
-        <h3> You are one step closer to finding a new friend! </h3>
-        <button> <a href="./home"> Home </a> </button>
+        
+        <div class="container" id="introContainer">
+            <h3> You are one step closer to finding a new friend! </h3>
+            <div class="text-center">
+                <button class="btn btn-light fa" id="homeButton"> <a href="./home"> <i class="fa fa-home fa-2x"></i> </a> </button>
+            </div>
+        </div>
 
-        <h4> Pick the answer that best fits you! </h4>
-        <form>
-            <h3> Name </h3>
-            <input type="text" id="nameField" required>
-            <br>
-            <h3> Link to Image </h3>
-            <input type="text" id="imageLink" required>
-            <br> 
+        <div class="container" id="surveyContainer">
+            <h4> Pick the answer that best fits you! </h4>
+            <form>
+                <h5 id="nameText"> Name : </h5>
+                <h5 id="imageText"> Link to Image : </h5>
+                <br>
+                <input type="text" id="nameField" class="textField" required>
+                <input type="text" id="imageLink" class="textField" required>
+                <br>
 
-            <h4> Question 1 </h4>
-            <input type="radio" class="q1c1" name="question1"/> 1 : Highly Disagree
-            <input type="radio" class="q1c2" name="question1"/> 2 : Disagree
-            <input type="radio" class="q1c3" name="question1"/> 3 : Neutral
-            <input type="radio" class="q1c4" name="question1"/> 4 : Agree
-            <input type="radio" class="q1c5" name="question1"/> 5 : Highly Agree
+                <h5> Question 1 : You rarely do something out of sheer curiousity. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q1c1 radio" name="question1"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q1c2 radio" name="question1"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q1c3 radio" name="question1"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q1c4 radio" name="question1"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q1c5 radio" name="question1"/> 5 : Highly Agree
+                </div>
 
-            <h4> Question 2 </h4>
-            <input type="radio" class="q2c1" name="question2"/> 1 : Highly Disagree
-            <input type="radio" class="q2c2" name="question2"/> 2 : Disagree
-            <input type="radio" class="q2c3" name="question2"/> 3 : Neutral
-            <input type="radio" class="q2c4" name="question2"/> 4 : Agree
-            <input type="radio" class="q2c5" name="question2"/> 5 : Highly Agree
-            
-            <h4> Question 3 </h4>
-            <input type="radio" class="q3c1" name="question3"/> 1 : Highly Disagree
-            <input type="radio" class="q3c2" name="question3"/> 2 : Disagree
-            <input type="radio" class="q3c3" name="question3"/> 3 : Neutral
-            <input type="radio" class="q3c4" name="question3"/> 4 : Agree
-            <input type="radio" class="q3c5" name="question3"/> 5 : Highly Agree
-            
-            <h4> Question 4 </h4>
-            <input type="radio" class="q4c1" name="question4"/> 1 : Highly Disagree
-            <input type="radio" class="q4c2" name="question4"/> 2 : Disagree
-            <input type="radio" class="q4c3" name="question4"/> 3 : Neutral
-            <input type="radio" class="q4c4" name="question4"/> 4 : Agree
-            <input type="radio" class="q4c5" name="question4"/> 5 : Highly Agree
-            
-            <h4> Question 5 </h4>
-            <input type="radio" class="q5c1" name="question5"/> 1 : Highly Disagree
-            <input type="radio" class="q5c2" name="question5"/> 2 : Disagree
-            <input type="radio" class="q5c3" name="question5"/> 3 : Neutral
-            <input type="radio" class="q5c4" name="question5"/> 4 : Agree
-            <input type="radio" class="q5c5" name="question5"/> 5 : Highly Agree
-            
-            <h4> Question 6 </h4>
-            <input type="radio" class="q6c1" name="question6"/> 1 : Highly Disagree
-            <input type="radio" class="q6c2" name="question6"/> 2 : Disagree
-            <input type="radio" class="q6c3" name="question6"/> 3 : Neutral
-            <input type="radio" class="q6c4" name="question6"/> 4 : Agree
-            <input type="radio" class="q6c5" name="question6"/> 5 : Highly Agree
-            
-            <h4> Question 7 </h4>
-            <input type="radio" class="q7c1" name="question7"/> 1 : Highly Disagree
-            <input type="radio" class="q7c2" name="question7"/> 2 : Disagree
-            <input type="radio" class="q7c3" name="question7"/> 3 : Neutral
-            <input type="radio" class="q7c4" name="question7"/> 4 : Agree
-            <input type="radio" class="q7c5" name="question7"/> 5 : Highly Agree
-            
-            <h4> Question 8 </h4>
-            <input type="radio" class="q8c1" name="question8"/> 1 : Highly Disagree
-            <input type="radio" class="q8c2" name="question8"/> 2 : Disagree
-            <input type="radio" class="q8c3" name="question8"/> 3 : Neutral
-            <input type="radio" class="q8c4" name="question8"/> 4 : Agree
-            <input type="radio" class="q8c5" name="question8"/> 5 : Highly Agree
-            
-            <h4> Question 9 </h4>
-            <input type="radio" class="q9c1" name="question9"/> 1 : Highly Disagree
-            <input type="radio" class="q9c2" name="question9"/> 2 : Disagree
-            <input type="radio" class="q9c3" name="question9"/> 3 : Neutral
-            <input type="radio" class="q9c4" name="question9"/> 4 : Agree
-            <input type="radio" class="q9c5" name="question9"/> 5 : Highly Agree
-            
-            <h4> Question 10 </h4>
-            <input type="radio" class="q10c1" name="question10"/> 1 : Highly Disagree
-            <input type="radio" class="q10c2" name="question10"/> 2 : Disagree
-            <input type="radio" class="q10c3" name="question10"/> 3 : Neutral
-            <input type="radio" class="q10c4" name="question10"/> 4 : Agree
-            <input type="radio" class="q10c5" name="question10"/> 5 : Highly Agree
-
-            <br>
-            
-            <button type="button" id="submitSurvey" class="btn btn-primary" data-toggle="modal">
-                Submit Survey
-            </button>
-        </form>
+                <h5> Question 2 : You are usually highly motivated and energetic. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q2c1 radio" name="question2"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q2c2 radio" name="question2"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q2c3 radio" name="question2"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q2c4 radio" name="question2"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q2c5 radio" name="question2"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 3 : Winning a debate to you matters less to you than making sure no one gets upset. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q3c1 radio" name="question3"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q3c2 radio" name="question3"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q3c3 radio" name="question3"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q3c4 radio" name="question3"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q3c5 radio" name="question3"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 4 : Your home and work environments are quite tidy. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q4c1 radio" name="question4"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q4c2 radio" name="question4"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q4c3 radio" name="question4"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q4c4 radio" name="question4"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q4c5 radio" name="question4"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 5 : People can rarely upset you. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q5c1 radio" name="question5"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q5c2 radio" name="question5"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q5c3 radio" name="question5"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q5c4 radio" name="question5"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q5c5 radio" name="question5"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 6 : In a discussion, truth should be more important than people's sensitivities. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q6c1 radio" name="question6"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q6c2 radio" name="question6"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q6c3 radio" name="question6"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q6c4 radio" name="question6"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q6c5 radio" name="question6"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 7 : An interesting book or video game is often better than a social event. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q7c1 radio" name="question7"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q7c2 radio" name="question7"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q7c3 radio" name="question7"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q7c4 radio" name="question7"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q7c5 radio" name="question7"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 8 : As a parent, you'd rather see your child grow up kind than smart. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q8c1 radio" name="question8"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q8c2 radio" name="question8"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q8c3 radio" name="question8"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q8c4 radio" name="question8"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q8c5 radio" name="question8"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 9 : You are more of a natural improviser than a careful planner. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q9c1 radio" name="question9"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q9c2 radio" name="question9"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q9c3 radio" name="question9"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q9c4 radio" name="question9"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q9c5 radio" name="question9"/> 5 : Highly Agree
+                </div>
+                
+                <h5> Question 10 : Your emotions control you more than you control them. </h5>
+                <div class="twenty">
+                    <input type="radio" class="q10c1 radio" name="question10"/> 1 : Highly Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q10c2 radio" name="question10"/> 2 : Disagree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q10c3 radio" name="question10"/> 3 : Neutral
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q10c4 radio" name="question10"/> 4 : Agree
+                </div>
+                <div class="twenty">
+                    <input type="radio" class="q10c5 radio" name="question10"/> 5 : Highly Agree
+                </div>
+                    
+                <br>
+                
+                <div class="text-center">
+                    <button type="button" id="submitSurvey" class="btn btn-success" data-toggle="modal">
+                        Submit Survey
+                    </button>
+                </div>
+            </form>
+        </div>
 
         <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="matchLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -168,7 +276,7 @@
                         $("#friendModal").modal();
 
                         // post into API friends
-                        /* var newFriend = {
+                        var newFriend = {
                             name: $("#nameField").val().trim(),
                             photo: $("#imageLink").val().trim(),
                             scores: surveyValues
@@ -176,7 +284,7 @@
                         $.post("/api/friends", newFriend, function(data) {
                             if (data) {
                             }
-                        }); */
+                        });
                     });
                 }
             });
@@ -205,4 +313,87 @@
             return surveyValues;
         } 
     </script>
+
+    <style>
+        /* General */
+
+        /* Header */
+        h1 {
+            background-color: whitesmoke;
+            border-bottom: 1px solid black;
+            padding: 30px;
+            letter-spacing: .1em;
+            text-align: center;
+            text-shadow: 0 0 2px black;
+        }
+
+        /* Intro Container */
+        #homeButton {
+            margin: 20px 0px 0px 0px;
+        }
+
+        #introContainer {
+            background-color: #DCDCDC;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 30px auto;
+            padding: 50px 30px 50px 30px;
+            width: 40%;
+        }
+
+        h3 {
+            color: black;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        /* Survey Container */
+        #surveyContainer {
+            background-color: #DCDCDC;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px auto;
+            padding: 50px 30px 50px 30px;
+            width: 80%;
+        }
+
+        #nameText {
+            display: inline-block;
+            width: 49%;
+        }
+
+        #imageText {
+            display: inline;
+        }
+
+        .textField {
+            margin-bottom: 20px;
+            width: 49%;
+        }
+
+        .radio {
+            margin-bottom: 25px;
+        }
+
+        .twenty {
+            display: inline-block;
+            width: 19%;
+        }
+        
+        h4 {
+            color: black;
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h5 {
+            font-size: 1.25em;
+            padding: 10px;
+        }
+
+        #submitSurvey {
+            margin-top: 50px;
+        }
+    </style>
 </html>
