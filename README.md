@@ -1,5 +1,9 @@
 # Friend-Finder
 
+https://personality-matching-ff.herokuapp.com/
+
+![Home Page](./images/home.png)
+
 A Node application that utilizes Express and Heroku in order for people to view images of individuals with similar personality traits to them.
 
 ### GETTING STARTED
@@ -7,10 +11,17 @@ A Node application that utilizes Express and Heroku in order for people to view 
 #### BUILT-WITH
 
 ```
-Node.js : a JavaScript run-time environment that executes its code outside of the browser. 
-    body-parser : a middleware package that takes a request's body and parses it to be easily manipulated.
-    express : a minimal and flexible Node.js web application framework
-    path : a package that returns filepaths.
+    Languages and Database :
+    
+    JAVASCRIPT
+    JQUERY
+    HTML / CSS / BOOTSTRAP
+    
+    Node Packages :
+    
+    body-parser : parse incoming request bodies in a middleware before your handlers, available under the req.body property
+    express : fast, unopinionated, minimalist web framework for node
+    path : an exact copy of the NodeJS ’path’ module
 ```
 
 #### INSTALLATION GUIDE
