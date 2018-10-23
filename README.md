@@ -13,9 +13,11 @@ A Node application that utilizes Express and Heroku in order for people to view 
 ```
     Languages and Database :
     
-    JAVASCRIPT
-    JQUERY
-    HTML / CSS / BOOTSTRAP
+    Javascript
+    Node
+    Express
+    JQuery
+    HTML / CSS / Bootstrap
     
     Node Packages :
     
